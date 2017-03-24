@@ -283,8 +283,8 @@ Stitcher::Status Stitcher::composePanorama(InputArrayOfArrays images, OutputArra
             //compose_seam_aspect = compose_scale / seam_scale_;
             compose_work_aspect = compose_scale / work_scale_;
 
-            // Calculate temporary warp scale
-            double warp_scale = warped_image_scale_ * compose_work_aspect;
+            // Update warped image scale
+            float warp_scale = static_cast<float>(warped_image_scale_ * compose_work_aspect);
             w = warper_->create(warp_scale);
 
             // Update corners and sizes
